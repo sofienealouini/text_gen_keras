@@ -94,7 +94,12 @@ else:
 
 
 # Prediction
-''' 
+paragraph = predict_paragraph(PRED_LEN, MODEL, True, TEMP)
+print(paragraph)
+
+
+'''
+# Prédire plusieurs paragraphes
 pars = []
 for k in range(50):
     np.random.seed(k ** 2)
@@ -103,17 +108,9 @@ for k in range(50):
 with open("example/pars.txt", "w") as f:
     for par in pars:
         f.write(par + "\n \n")
-'''
-
-
-paragraph = predict_paragraph(PRED_LEN, MODEL, True, TEMP)
-print(paragraph)
 
 
 
-
-
-'''
 # Activations
 net_acts = all_activations(MODEL, paragraph)
 np.save("example/activations.npy", net_acts)'''
